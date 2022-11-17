@@ -2,15 +2,30 @@ const startBtn = document.getElementById('start-btn')
 const startMsg = document.getElementById('start-msg')
 const questionText = document.getElementById('container')
 const submitBtn = document.getElementById('next-btn')
+let timer = document.getElementById('timer')
 let questionEl = document.getElementById('questions')
 let answerIndex = document.getElementsByClassName('answer')
 
 
 let score = 0;
-let timer = 1000;
 
 const hideStartMsg = () => {
     startMsg.classList.add("hide");
+}
+// timer 
+function countdown() {
+    var timeLeft = 1000;
+
+    var timeInterval = setInterval(function () {
+
+    timeLeft--;
+    timer.textContent = "Time remaining: " + timeLeft + " seconds"
+
+    if(timeLeft === 0) {
+        clearInterval(timeInterval);
+        displayMessage();
+    }
+    }, 1000);
 }
 //data list for questions and answers
 
@@ -48,7 +63,7 @@ startBtn.addEventListener("click", function() {
     questionText.classList.toggle("hide");
     showQuestion();
     score = 0;
-
+    countdown();
 });
 
 
