@@ -27,11 +27,21 @@ body {
 .start-next {
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 button{
     padding:0.5rem;
     margin: 10px 20px;
+    min-width: 90%;
 }
+
+.correct {
+    background-color: var(--correct);
+}
+.wrong {
+    background-color: var(--wrong);
+}
+
 .btn-answer {
     font-size: 1.5rem;
 }
@@ -42,6 +52,20 @@ button{
     background-color: navy;
 }
 
+.next-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    width: 40%
+}
 .hide {
     display: none;
+}
+
+.start-quiz {
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
