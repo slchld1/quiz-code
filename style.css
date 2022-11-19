@@ -1,6 +1,6 @@
 :root {
     --correct: #198754;
-    --wrong: #bb2d3b;
+    --incorrect: #bb2d3b;
 
 }
 section {
@@ -87,4 +87,20 @@ button{
     display: flex;
     justify-content: center;
     text-align: center;
+}
+
+#score {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0.5rem;
+    font-size: larger;
+}
+
+.correct {
+    background-color: var(--correct);
+}
+
+.incorrect {
+    background-color: var(--incorrect);
 }

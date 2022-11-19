@@ -11,27 +11,35 @@
 </head>
 <body>
     <nav>
-    <div id="high-scores" class="high-score"><a href="#">view high score</a></div>
+    <div id="high-scores" class="high-score"><a href="#">view high score</a><br></div>
+    <div id="score">Current Score:</div>
     <div id="timer" class="timer">Time Remaining:</div>
     </nav>
 <section>
     <div class="container hide" id="container">
-        <div class="display-4 questions" id="questions">Question</div>
+        <div class="display-4 questions" id="question">Question</div>
             <div id="answer-container">
-                <button class="btn btn-primary btn-answer answer" tabindex="1">Answer</button>
-                <button class="btn btn-primary btn-answer answer" tabindex="2">Answer</button>
-                <button class="btn btn-primary btn-answer answer" tabindex="3">Answer</button>
-                <button class="btn btn-primary btn-answer answer" tabindex="4">Answer</button>
+                <button class="btn btn-primary btn-answer answer" id="answer" data-number="1">Answer</button>
+                <button class="btn btn-primary btn-answer answer" id="answer" data-number="2">Answer</button>
+                <button class="btn btn-primary btn-answer answer" id="answer" data-number="3">Answer</button>
+                <button class="btn btn-primary btn-answer answer" id="answer" data-number="4">Answer</button>
             </div>
         </div>
         <div class="start-msg" id="start-msg">
             <div class="display-4 start-quiz" id="start-quiz">Welcome to my Quiz! <br> Press Start to Start your Quiz</div>
         </div>
-        <div>
-            <div class="start-next">
-                <button type="button" class="btn btn-primary start-btn" id="start-btn">Start!</button>
-                <button type="button" class="btn btn-primary next-btn hide" id="next-btn">Next</button>
+    <div class="c_wRespose">
+        <div class="correct" id="correct">Correct!</div>
+        <div class="incorrect" id="incorrect">Incorrect!</div>
+    </div>
+    <div>
+        <div class="start-next">
+            <button type="button" class="btn btn-primary start-btn" id="start-btn">Start!</button>
+            <button type="button" class="btn btn-primary next-btn hide" id="next-btn">Next</button>
         </div>
+    </div>
+    <div class="correct-wrong-msg">
+        <div class="display-3 hide" id="correct-wrong"></div>
     </div>
 </div>
 </section>
