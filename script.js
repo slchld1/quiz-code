@@ -62,12 +62,17 @@ let questions = [
         answer: 4,
     },
     {
-        question: "Constant can"
+        question: "Constant can",
+        choice1: "be changed",
+        choice2: "be undefined",
+        choice3: "not be changed",
+        choice4: "be used in html",
+        answer: 3,
     }
 ];
 
 const correctScore = 1;
-const maxQuestions = 6;
+const maxQuestions = 4;
 
 startGame = () => {
     score = 0;
@@ -84,6 +89,9 @@ newQuestion = () => {
     currentQuestion = availableQuestions[rnQuestion];
     //prints current question
     question.innerText = currentQuestion.question
+    if (currentQuestion >= maxQuestions) {
+        userInput();
+    }
     //link the answer choices through data-set from the data-set number
     choices.forEach((choice) => {
         const number = choice.dataset['number'];
@@ -103,19 +111,18 @@ choices.forEach((choice) => {
             const selChoice = event.target;
             const selAnswer = selChoice.dataset['number'];
             //if answer is correct-incorrect
-            const currentAns = 'incorrect'; 
                 const c_wResponse 
                 = selAnswer == currentQuestion.answer ? 'correct ' : 'incorrect';
 
                 if (c_wResponse === 'correct') {
-                    addScore(correctScore)
+                    addScore(1)
                 }
-                selChoice.parentElement.classList.add(c_wResponse)
+                selChoice.classList.add(c_wResponse)
                 setTimeout(() => {
-                    selChoice.parentElement.classList.remove(c_wResponse)
+                    selChoice.classList.remove(c_wResponse)
                     newQuestion()
                 }, 1500);
-        });
+            });
     });        
         function subtractTime() {
             timer.innerText - 200;
@@ -125,16 +132,21 @@ choices.forEach((choice) => {
                 score += n
                 parseInt(scoreNum.innerText = +score);
         }
+        var array = [];
+        function dataInfo(data) {
+            trackScore = data
+            array.push(trackScore)
+            var val = "";
+            for(i = 0; i < array.length; i++){
+                val = val + array[i] + "<br/>"
+            }
+            document.getElementById('high-score').innerHTML = val
+        }
         
-        
-        // clears status of buttons
-const clear = () => {
-    answerBtn.classList.remove('correct')
-    answerBtn.classList.remove('wrong')
-    nextBtn.classList.toggle('hide')
-    correctAns.classList.add('hide')
-    wrongAns.classList.add('hide')
-}
+        function userInput(){
+                trackScore = window.prompt("What is your name")
+                pushData(data)
+        }
 
 startBtn.addEventListener("click", function() {
     startBtn.classList.toggle("hide");
