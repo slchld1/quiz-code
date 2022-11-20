@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
     <script defer src="script.js"></script>
     <title>Document</title>
@@ -12,30 +11,30 @@
 <body>
     <nav>
     <div id="high-scores" class="high-score"><a href="#">view high score</a><br></div>
-    <div id="score">Current Score:</div>
+    <div id="score-text">Current Score:
+        <div id="score">0</div>
+    </div>
+
     <div id="timer" class="timer">Time Remaining:</div>
     </nav>
 <section>
     <div class="container hide" id="container">
         <div class="display-4 questions" id="question">Question</div>
             <div id="answer-container">
-                <button class="btn btn-primary btn-answer answer" id="answer" data-number="1">Answer</button>
-                <button class="btn btn-primary btn-answer answer" id="answer" data-number="2">Answer</button>
-                <button class="btn btn-primary btn-answer answer" id="answer" data-number="3">Answer</button>
-                <button class="btn btn-primary btn-answer answer" id="answer" data-number="4">Answer</button>
+                <button class="btn answer" id="answer" data-number="1">Answer</button>
+                <button class="btn answer" id="answer" data-number="2">Answer</button>
+                <button class="btn answer" id="answer" data-number="3">Answer</button>
+                <button class="btn answer" id="answer" data-number="4">Answer</button>
             </div>
         </div>
         <div class="start-msg" id="start-msg">
             <div class="display-4 start-quiz" id="start-quiz">Welcome to my Quiz! <br> Press Start to Start your Quiz</div>
         </div>
-    <div class="c_wRespose">
-        <div class="correct" id="correct">Correct!</div>
-        <div class="incorrect" id="incorrect">Incorrect!</div>
     </div>
     <div>
         <div class="start-next">
-            <button type="button" class="btn btn-primary start-btn" id="start-btn">Start!</button>
-            <button type="button" class="btn btn-primary next-btn hide" id="next-btn">Next</button>
+            <button type="button" class="start-btn" id="start-btn">Start!</button>
+            <button type="button" class="next-btn hide" id="next-btn">Next</button>
         </div>
     </div>
     <div class="correct-wrong-msg">

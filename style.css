@@ -53,7 +53,14 @@ button{
     margin: 10px 20px;
     min-width: 90%;
 }
-
+.btn:hover {
+    color: #fff !important;
+    text-decoration: none;
+    }
+.btn-primary{
+    color: #fff !important;
+    text-decoration: none;
+}
 .correct {
     background-color: var(--correct);
 }
@@ -89,7 +96,7 @@ button{
     text-align: center;
 }
 
-#score {
+#score-text {
     position: absolute;
     left: 0;
     bottom: 0;

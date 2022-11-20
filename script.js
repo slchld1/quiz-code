@@ -11,6 +11,7 @@ let currentQuestion = {};
 let questionIndex = 0;
 let availableQuestions = [];
 let score = 0
+let scoreCount = 0
 
 
 
@@ -25,56 +26,53 @@ function countdown() {
         
     timeLeft--;
     timer.textContent = "Time remaining: " + timeLeft + " seconds"
-    
     if(timeLeft === 0) {
         clearInterval(timeInterval);
         alert("Time is up!")
         return;
     }
+    return;
 }, 1000);
-}
-
-// removes time from timer if answer is wrong
-function removeTime() {
-    var remainingT = timer.innerHTML;
-    remainingT -= 25;
 }
 //data list for questions and answers
 
 let questions = [
     {
-        question: 'Inside which HTML element do we put the JavaScript??',
-        choice1: '<script>',
-        choice2: '<javascript>',
-        choice3: '<js>',
-        choice4: '<scripting>',
+        question: 'What is 2 + 2?',
+        choice1: '4',
+        choice2: '44',
+        choice3: '120',
+        choice4: '90',
         answer: 1,
     },
     {
-        question:
-        "What is the correct syntax for referring to an external script called 'xxx.js'?",
-        choice1: "<script href='xxx.js'>",
-        choice2: "<script name='xxx.js'>",
-        choice3: "<script src='xxx.js'>",
-        choice4: "<script file='xxx.js'>",
+        question: "How do you link a css file from your Index.html file?",
+        choice1: "<script class='style.css'>",
+        choice2: "<link name='style.css'>",
+        choice3: "<link href='style.css'>",
+        choice4: "<style class='style.css'>",
         answer: 3,
     },
     {
-        question: " How do you write 'Hello World' in an alert box?",
+        question: "How do you write 'Hello World' in an alert box?",
         choice1: "msgBox('Hello World');",
         choice2: "alertBox('Hello World');",
         choice3: "msg('Hello World');",
         choice4: "alert('Hello World');",
         answer: 4,
     },
+    {
+        question: "Constant can"
+    }
 ];
 
 const correctScore = 1;
 const maxQuestions = 6;
 
 startGame = () => {
-    questionIndex = 0;
     score = 0;
+    scoreCount = 0
+    questionIndex = 0;
     availableQuestions = [ ... questions];
     newQuestion();
 }
@@ -105,30 +103,29 @@ choices.forEach((choice) => {
             const selChoice = event.target;
             const selAnswer = selChoice.dataset['number'];
             //if answer is correct-incorrect
-            const currentAns = "incorrect";
-            if(selAnswer === currentQuestion.answer) {
-                    currentAns = 'correct';
+            const currentAns = 'incorrect'; 
+                const c_wResponse 
+                = selAnswer == currentQuestion.answer ? 'correct ' : 'incorrect';
+
+                if (c_wResponse === 'correct') {
+                    addScore(correctScore)
                 }
-                const c_wResponse = selAnswer == currentQuestion.answer ? 'correct ' : 'incorrect';
-                console.log(c_wResponse)
-                selChoice.classList.add(c_wResponse)
-                if (selChoice === 'correct') {
-                    addScore(1);
-                }  
-                
+                selChoice.parentElement.classList.add(c_wResponse)
                 setTimeout(() => {
-                    selChoice.classList.remove(c_wResponse)
+                    selChoice.parentElement.classList.remove(c_wResponse)
                     newQuestion()
-                }, 1000);
-                if (selChoice === 'incorrect'){
-                    timeLeft -= 300
-                }
+                }, 1500);
         });
     });        
-        addScore = n => {
-            score += n;
-            scoreNum.textContent = score
+        function subtractTime() {
+            timer.innerText - 200;
+            countdown();
         }
+        addScore = n => {
+                score += n
+                parseInt(scoreNum.innerText = +score);
+        }
+        
         
         // clears status of buttons
 const clear = () => {
@@ -144,6 +141,5 @@ startBtn.addEventListener("click", function() {
     hideStartMsg();
     questionText.classList.toggle("hide");
     startGame();
-
     countdown();
 });
